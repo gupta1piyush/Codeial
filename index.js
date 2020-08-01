@@ -3,6 +3,7 @@ const app=express();
 const port=8900;
 const expresslayouts=require('express-ejs-layouts');
 
+app.use(express.static('./assets'));
 app.use(expresslayouts);
 app.use('/',require('./routes'));
 
