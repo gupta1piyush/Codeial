@@ -13,7 +13,11 @@
         <ul>
             <% for(post of posts){%>
                 <li>
-                    <%=post.content%>
+                    <p>
+                        <%=post.content%>
+                        <br>
+                        <%=post.user.name%>
+                    </p>
                 </li>
             <%}%>
         </ul>
