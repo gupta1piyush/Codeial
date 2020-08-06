@@ -1,8 +1,12 @@
 const User=require('../models/user');
 module.exports.profile=function(req,res){
-    res.render('user_profile',{
-        title:"Profile"
+    User.findById(req.params.id,function(err,user){
+        res.render('user_profile',{
+            title:"Profile",
+            profile_user:user
+        });
     });
+    
 }
 
 module.exports.signUp=function(req,res){
