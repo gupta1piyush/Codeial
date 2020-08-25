@@ -2,13 +2,12 @@ const passport=require('passport');
 const JWTStragery=require('passport-jwt').Strategy;
 const ExtractJWT=require('passport-jwt').ExtractJwt;
 
-const User=require('./../models/user');
-
+const User = require('../models/user');
 let opts={
     jwtFromRequest:ExtractJWT.fromAuthHeaderAsBearerToken,
     secretOrKey:'codeial'
 }
-passport.use(new JWTStragery(opts,function(jwtPayload,done){
+passport.use(new JWTStragery(opts,function(jwtPayLoad,done){
     User.findById(jwtPayload._id,function(err,user){
         if(err){console.log('Error in finding user from JWT');return;}
         if(user){
