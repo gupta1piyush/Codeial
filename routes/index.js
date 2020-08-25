@@ -4,7 +4,7 @@ const homeController=require('../controller/home_controller');
 const { route } = require('./comments');
 
 router.get('/',homeController.home);
-router.use('/user',require('./user'));
+router.use('/users',require('./user'));
 router.use('/posts',require('./posts'));
 router.use('/comments',require('./comments'));
 router.use('/api',require('./api'));

@@ -13,7 +13,7 @@ module.exports.profile=function(req,res){
 
 module.exports.signUp=function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/user/profile');
+        return res.redirect('/users/profile');
     }
     return res.render('user_sign_up',{
         title:"Codeial:SignUp"
@@ -50,7 +50,7 @@ module.exports.update= async function(req,res){
 }
 module.exports.signIn=function(req,res){
     if(req.isAuthenticated()){
-        return res.redirect('/user/profile');
+        return res.redirect('/users/profile');
     }
     res.render('user_sign_in',{
         title:"Codeial:SignIn"
@@ -67,7 +67,7 @@ module.exports.create=function(req,res){
         if(!user){
             User.create(req.body,function(err,user){
                 if(err){console.log('error in creating User');return}
-                return res.redirect('/user/sign-in');
+                return res.redirect('/users/sign-in');
             })
         }else{
             return res.redirect('back');
