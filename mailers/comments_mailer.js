@@ -13,7 +13,7 @@ exports.newComment=(comment)=>{
             console.log('Error in sending emails',err);
             return;
         }
-        console.log("message sent",info);
+       // console.log("message sent",info);
         return;
     });
 }
