@@ -48,7 +48,7 @@ passport.deserializeUser(function(id, done){
         }
 
         return done(null, user);
-    });
+    }); 
 });
 passport.checkAuthentication=function(req,res,next){
     //if the user is signed in then pass on request to the next function

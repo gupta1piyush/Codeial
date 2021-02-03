@@ -8,9 +8,13 @@ require('./config/view-helpers')(app);
 const port=8900;
 const expresslayouts=require('express-ejs-layouts');
 const db=require('./config/mongoose');
+
+//used for session cookie
 const session=require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
+
+
 const passportJWT=require('./config/passport-jwt-startegy');
 const passportGoogle = require('./config/passport-google-oauth2-Stragery');
 
@@ -28,6 +32,7 @@ console.log('chat server is listening on port 5000');
 const path=require('path');
 
 if(env.name=='development'){
+    //SASS middleware setup to render files in this we use app to use sass middle ware to display out pages
     app.use(sassMiddleware({
         src:path.join(__dirname,env.asset_path,'scss'),
         dest:path.join(__dirname,env.asset_path,'css'),
@@ -50,8 +55,6 @@ app.use(expresslayouts);
 //abstract styles and sheet
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
-
-
 
 
 app.set('view engine','ejs');
